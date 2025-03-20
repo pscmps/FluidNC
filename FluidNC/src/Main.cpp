@@ -35,15 +35,16 @@ void setup() {
     auto cfg = M5.config();       // M5Stack初期設定用の構造体を代入
 
     M5.begin(cfg);                           // M5デバイスの初期化
-    Wire.begin(21,22);
-    Wire.beginTransmission(0x27);
 
-    Wire.write(0x03);  // 初期化レジスタ
-    Wire.write(0x0F);  // IO 0~3: input, 4~7: output
-    Wire.endTransmission();    
+    // pinMode(26, OUTPUT); 
+    // digitalWrite(26, HIGH);
+    // delay(5000);
+    // digitalWrite(26, LOW);
 
     M5.Display.setTextSize(3);               // テキストサイズを変更
-    M5.Display.print("Hello World!!");       // 画面にHello World!!と1行表示
+    M5.Display.println("Button A:Star");       // 画面にHello World!!と1行表示
+    M5.Display.println("Button B:Star2");       // 画面にHello World!!と1行表示
+    M5.Display.println("Button C:test");       // 画面にHello World!!と1行表示
     Serial.println("Hello World!!");         // シリアルモニターにHello World!!と1行表示
   
     disableCore0WDT();
